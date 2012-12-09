@@ -1,6 +1,5 @@
 <?php
 /**
- * 
  * @author afilipenko
  * @see Zend_Application_Bootstrap_Bootstrap
  */

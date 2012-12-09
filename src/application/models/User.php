@@ -7,14 +7,12 @@
 class Application_Model_User extends Reef_Model {
 	
 	/**
-	 * Create new user record
-	 * 
-	 * @param array $data
-	 * @return mixed
+	 * (non-PHPdoc)
+	 * @see Zend_Db_Table_Abstract::insert()
 	 */
-	static public function add(array $data) {
+	public function insert(array $data){
 		if (isset($data['password2'])) unset($data['password2']);
-		$data = $this->insert($data);
+		$data = parent::insert($data);
 		return $data;
 	}
 	

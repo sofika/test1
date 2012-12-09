@@ -50,7 +50,9 @@ class UserController extends Zend_Controller_Action {
 		if ($this->getRequest()->isPost()) {
 			if ($form->isValid($this->getRequest()->getPost())) {
 				$form->getElement('password')->addFilter(new Zend_Filter_Callback('md5'));
-				Application_Model_User::add($form->getValues());
+				// Application_Model_User::add($form->getValues());
+				$user = new Application_Model_User();
+				$user->insert($form->getValues());
 				$this->redirect('user/login');
 			}
 		}
