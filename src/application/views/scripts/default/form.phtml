@@ -1,0 +1,11 @@
+<div class="row-fluid">
+	<h3><?php echo $this->form->getLegend() ?></h3>
+	<?php if ($this->messages): ?>
+		<ul>
+		<?php foreach ($this->messages as $message): ?>
+		<li><?php echo $this->escape($message) ?></li>
+		<?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+	<div><?php echo $this->form ?></div>
+</div>

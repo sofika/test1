@@ -1,0 +1,42 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+	<meta charset="utf-8">
+	<?php echo $this->headTitle() ?>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<?php echo $this->headLink() ?>
+	<?php echo $this->headScript() ?>
+</head>
+<body>
+	<div class="navbar navbar-static-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a href="<?php echo $this->url(array(), null, true) ?>" class="brand"><font color="green">REEF</font></a>
+				<div class="nav-collapse collapse">
+					<ul class="nav pull-right">
+						<?php $data = array() ?>
+						<?php $data['Login'] = array('controller' => 'user', 'action' => 'login') ?>
+						<?php $data['Register'] = array('controller' => 'user', 'action' => 'register') ?>
+						<?php $data['Logout'] = array('controller' => 'user', 'action' => 'logout') ?>
+						<?php $current = $this->url() ?>
+						<?php foreach ($data as $name => $a): ?>
+						<?php $href = $this->url($a) ?>
+						<li <?php if ($href == $current): ?> class="active"<?php endif; ?>>
+							<a href="<?php echo $href ?>"><?php echo $name?> </a>
+						</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<?php echo $this->layout()->content ?>
+	</div>
+</body>
+</html>
