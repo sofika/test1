@@ -10,8 +10,5 @@
 			<li><?php echo $key ?>: <?php echo $value?></li>
 		<?php endforeach;?>
 		</ul>
-		<?php if ($this->data['newsletter'] == 0): ?>
-			<a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'settings', 'enable' => true)) ?>">&raquo; Enable newsletter</a>
-		<?php endif;?>
 	</div>
 </div>
