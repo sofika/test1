@@ -23,17 +23,9 @@ class Application_Model_User extends Reef_Model {
 	 */
 	public function insert(array $data){
 		if (isset($data['password2'])) unset($data['password2']);
+		if (isset($data['terms'])) unset($data['terms']);
+		if (isset($data['newsletter'])) unset($data['newsletter']);
 		$data = parent::insert($data);
 		return $data;
-	}
-	
-	/**
-	 * 
-	 * 
-	 * @param int $id
-	 * @param string $key
-	 */
-	public function activate($id, $key) {
-		
 	}
 }

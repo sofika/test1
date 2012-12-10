@@ -1,8 +1,7 @@
 <div class="row-fluid">
 	<div class="span12">
-		<h1>Welcome to CRM 
 		<?php if ($this->auth->hasIdentity()) :?>
-		<?php echo $this->auth->getIdentity() ?>
-		<?php endif; ?></h1>
+		Hello <?php echo $this->auth->getIdentity() ?>
+		<?php endif; ?>
 	</div>
 </div>

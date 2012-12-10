@@ -1,0 +1,17 @@
+<?php $gender = array('not selected', 'female', 'male')?>
+<?php $status = array('inactive', 'active') ?>
+<div class="row-fluid">
+	<div class="span12">
+		<h3>User Profile</h3>
+		<ul>
+		<?php foreach ($this->data as $key => $value): ?>
+			<?php if ($key == 'gender') $value = $gender[$value] ?>
+			<?php if ($key == 'status' || $key == 'newsletter') $value = $status[$value] ?>
+			<li><?php echo $key ?>: <?php echo $value?></li>
+		<?php endforeach;?>
+		</ul>
+		<?php if ($this->data['newsletter'] == 0): ?>
+			<a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'settings', 'enable' => true)) ?>">&raquo; Enable newsletter</a>
+		<?php endif;?>
+	</div>
+</div>
