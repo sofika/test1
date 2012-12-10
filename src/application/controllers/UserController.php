@@ -96,8 +96,9 @@ class UserController extends Zend_Controller_Action {
 			$this->redirect('user/login');
 		}
 		$user = new Application_Model_User();
-		$user->select()->where('usermail = ?', Zend_Auth::getInstance()->getIdentity());
-		$this->view->data = $user->fetchRow();
+		$select = $user->select()->where('usermail = ?', Zend_Auth::getInstance()->getIdentity())->limit(1);
+		$result = $select->query();
+		$this->view->data = $result->fetch(null, null, 1);
 	}
 	
 	/**
