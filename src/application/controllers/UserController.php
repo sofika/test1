@@ -79,7 +79,7 @@ class UserController extends Zend_Controller_Action {
 	 */
 	public function logoutAction() {
 		if (!Zend_Auth::getInstance()->hasIdentity()) {
-			$this->addMessage('no access to this section! please log in');
+			$this->_helper->FlashMessenger('no access');
 			$this->redirect('user/login');
 		}
 		Zend_Auth::getInstance()->clearIdentity();
@@ -92,7 +92,7 @@ class UserController extends Zend_Controller_Action {
 	 */
 	public function profileAction() {
 		if (!Zend_Auth::getInstance()->hasIdentity()) {
-			$this->addMessage('no access to this section! please log in');
+			$this->_helper->FlashMessenger('no access');
 			$this->redirect('user/login');
 		}
 		$user = new Application_Model_User();
@@ -104,27 +104,34 @@ class UserController extends Zend_Controller_Action {
 	 * Switch newsletter on/off
 	 */
 	public function newsletterAction() {
-		if (!$this->getRequest()->getParam('option') || 
-				!$this->getRequest()->getParam('id') || 
-				!$this->getRequest()->getParam('code')) {
-			$this->_helper->FlashMessenger('wrong input data');
-			$this->redirect('index');
-		}
-		// select user from database
-		$user = new Application_Model_User();
-		$user->select()
+		$this->_helper->layout()->disableLayout();
+		$this->_helper->viewRenderer->setNoRender(true);
+		if ($this->getRequest()->getParam('option') 
+				&& $this->getRequest()->getParam('id') 
+				&& $this->getRequest()->getParam('code')) {
+			// select user from database
+			$user = new Application_Model_User();
+			$user->select()
 			->where('id = ?', $this->getRequest()->getParam('id'))
 			->where('code = ?', $this->getRequest()->getParam('code'));
-		
-		switch ($this->getRequest()->getParam('option')) {
-			case 'enable':
-				$user->select()->where('newsletter = ', 0);
-				$user = $user->fetchRow();
-				break;
-				
-			case 'disbale':
-				
-				break;
+			
+			switch ($this->getRequest()->getParam('option')) {
+				case 'enable':
+					$user->select()->where('newsletter = ', 0);
+					$user = $user->fetchRow();
+					$user->newsletter = 1;
+					$user->save();
+					$this->_helper->FlashMessenger('newsletter enabled');
+					$this->redirect('index');
+					break;
+			
+				case 'disbale':
+			
+					break;
+			}
+		} else {
+			$this->_helper->FlashMessenger('no access to this section');
+			$this->redirect('index');
 		}
 	}
 }
