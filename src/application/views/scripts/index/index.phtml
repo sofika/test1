@@ -1,7 +1,8 @@
 <div class="row-fluid">
 	<div class="span12">
 		<?php if ($this->auth->hasIdentity()) :?>
-		Hello <?php echo $this->auth->getIdentity() ?>
+		<?php $user = $this->auth->getIdentity() ?>
+		Hello <?php echo $user->firstname ?> <?php echo $user->lastname ?>
 		<?php endif; ?>
 	</div>
 </div>

@@ -17,6 +17,13 @@
  */
 class UserController extends Zend_Controller_Action {
 	
+	public function preDispatch() {
+		if (Zend_Auth::getInstance()->hasIdentity()) {
+			#var_dump(Zend_Auth::getInstance()->getIdentity());
+			#exit;
+		}
+	}
+	
 	/**
 	 * User login process
 	 */
@@ -33,6 +40,8 @@ class UserController extends Zend_Controller_Action {
 				$adapter->setCredential($form->getValue('password'));
 				$result = Zend_Auth::getInstance()->authenticate($adapter);
 				if ($result->isValid()) {
+					$storage = Zend_Auth::getInstance()->getStorage();
+					$storage->write($adapter->getResultRowObject(null,'password'));
 					$this->_helper->FlashMessenger('login successfully');
 					$this->redirect('index');
 				}
@@ -95,10 +104,7 @@ class UserController extends Zend_Controller_Action {
 			$this->_helper->FlashMessenger('no access');
 			$this->redirect('user/login');
 		}
-		$user = new Application_Model_User();
-		$select = $user->select()->where('usermail = ?', Zend_Auth::getInstance()->getIdentity())->limit(1);
-		$result = $select->query();
-		$this->view->data = $result->fetch(null, null, 1);
+		$this->view->data = Zend_Auth::getInstance()->getIdentity();
 	}
 	
 	/**
@@ -107,32 +113,36 @@ class UserController extends Zend_Controller_Action {
 	public function newsletterAction() {
 		$this->_helper->layout()->disableLayout();
 		$this->_helper->viewRenderer->setNoRender(true);
+		
 		if ($this->getRequest()->getParam('option') 
 				&& $this->getRequest()->getParam('id') 
 				&& $this->getRequest()->getParam('code')) {
 			// select user from database
-			$user = new Application_Model_User();
-			$user->select()
-			->where('id = ?', $this->getRequest()->getParam('id'))
-			->where('code = ?', $this->getRequest()->getParam('code'));
-			
+			$id = $this->getRequest()->getParam('id');
+			$model = new Application_Model_User();
+			$user = $model->find($id);
+			if (!$user->count() > 0) {
+				$this->redirect('index');
+			}
+			$user = $user->current();
 			switch ($this->getRequest()->getParam('option')) {
 				case 'enable':
-					$user->select()->where('newsletter = ', 0);
-					$user = $user->fetchRow();
-					$user->newsletter = 1;
-					$user->save();
-					$this->_helper->FlashMessenger('newsletter enabled');
-					$this->redirect('index');
+					if ($user->id == $id 
+							&& $this->getRequest()->getParam('code') == $user->code 
+							&& $user->newsletter == 0) {
+						$user->newsletter = 1;
+						$user->save();
+						$this->_helper->FlashMessenger('newsletter enabled');
+					}
 					break;
 			
 				case 'disbale':
-			
+					
 					break;
 			}
 		} else {
 			$this->_helper->FlashMessenger('no access to this section');
-			$this->redirect('index');
 		}
+		$this->redirect('index');
 	}
 }
