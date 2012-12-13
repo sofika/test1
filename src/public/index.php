@@ -1,8 +1,9 @@
 <?php
 
+function pre($a) {echo '<pre>'; var_dump($a); echo '</pre>'; }
 // Define path to application directory
 defined('APPLICATION_PATH')
-    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../app'));
 
 // Define application environment
 defined('APPLICATION_ENV')
@@ -20,6 +21,6 @@ require_once 'Zend/Application.php';
 // Create application, bootstrap, and run
 $application = new Zend_Application(
     APPLICATION_ENV,
-    APPLICATION_PATH . '/configs/application.ini'
+    APPLICATION_PATH . '/etc/application.ini'
 );
 $application->bootstrap()->run();
