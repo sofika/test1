@@ -20,6 +20,8 @@ class IndexController extends Zend_Controller_Action {
 	
 	public function indexAction() {
 		$this->view->auth = Zend_Auth::getInstance();
+		$form = new Reef_Form_Login();
+		$this->view->form = $form; 
 	}
 }
 
