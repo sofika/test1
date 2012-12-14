@@ -31,7 +31,6 @@ class Reef_Rest_Controller_Abstract extends Zend_Rest_Controller{
 			->addActionContext('post', array('json'))
 			->addActionContext('delete', array('json'))
 			->addActionContext('get', array('json'))
-			->addActionContext('index', array('json'))
 			->initContext();
 		$this->_getHelper()->viewRenderer->setNoRender(true);
 	}
@@ -40,9 +39,7 @@ class Reef_Rest_Controller_Abstract extends Zend_Rest_Controller{
 	 * (non-PHPdoc)
 	 * @see Zend_Controller_Action::init()
 	 */
-	public function init(){
-		
-	}
+	public function init(){}
 	
 	/**
 	 * Initiates the format
