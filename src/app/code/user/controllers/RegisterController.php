@@ -2,7 +2,7 @@
 /**
  * REEF CRM
  *
- * This is rest resource handling the user creation
+ * This is rest resource handling the user registration
  *
  * LICENSE
  *
@@ -11,11 +11,11 @@
  * except for the project REEF.
  *
  * @category   User
- * @package    Create_Controller
+ * @package    Register_Controller
  * @copyright  Copyright (c) 2012 REEF Project (gigaset.de)
  * @author	   Daniel Matuschewsky <dm@meets-ecommerce.de>
  */
-class User_CreateController extends Reef_Rest_Controller_Abstract{
+class User_RegisterController extends Reef_Rest_Controller_Abstract{
 	
 	/**
 	 * This function initalized everything needed

@@ -1,8 +1,9 @@
 <?php
 /**
+ * 
  * REEF CRM
  *
- * Manages internally some url function who are needed
+ * This is rest resource handling the user reset password
  *
  * LICENSE
  *
@@ -10,19 +11,16 @@
  * to use for the REEF project and can be copied for other projects
  * except for the project REEF.
  *
- * @category   Reef
- * @package    View_Helper_Url
+ * @category   User
+ * @package    Resetpassword_Controller
  * @copyright  Copyright (c) 2012 REEF Project (gigaset.de)
  * @author	   Andrej Filipenko <af@meets-ecommerce.de>
  */
-class Reef_View_Helper_Url extends Zend_View_Helper_Url {
+class User_ResetpasswordController extends Reef_Rest_Controller_Abstract {
 	
 	/**
-	 * Returns home url
-	 * 
-	 * @return string Url
+	 * (non-PHPdoc)
+	 * @see Reef_Rest_Controller_Abstract::postAction()
 	 */
-	public function getHomeUrl() {
-		return $this->url(array(), null, true);
-	}
+	public function postAction() {}
 }

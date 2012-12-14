@@ -1,24 +1,4 @@
 <?php echo $this->doctype() ?>
-<?php 
-	$nav = array(
-		'Login' => array(
-			'url' => array('controller' => 'user', 'action' => 'login'),
-			'auth' => false
-		),
-		'Logout' => array(
-			'url' => array('controller' => 'user', 'action' => 'logout'),
-			'auth' => true
-		),
-		'Register' => array(
-			'url' => array('controller' => 'user', 'action' => 'register'),
-			'auth' => false
-		),
-		'Profile' => array(
-			'url' => array('controller' => 'user', 'action' => 'profile'),
-			'auth' => true
-		)
-	);
-?>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -44,16 +24,9 @@
 				<a href="<?php echo $this->url(array(), null, true) ?>" class="brand"><font color="green">REEF</font></a>
 				<div class="nav-collapse collapse">
 					<ul class="nav pull-right">
-						<?php $isAuth = Zend_Auth::getInstance()->hasIdentity(); ?>
-						<?php $current = $this->url() ?>
-						<?php foreach ($nav as $name => $data): ?>
-						<?php $href = $this->url($data['url']) ?>
-						<li <?php if ($href == $current): ?> class="active"<?php endif; ?>>
-							<?php if ($isAuth == $data['auth']): ?>
-							<a href="<?php echo $href ?>"><?php echo $name?> </a>
-							<?php endif; ?>
+						<li class="active">
+							<a href="#">Navbutton</a>
 						</li>
-						<?php endforeach; ?>
 					</ul>
 				</div>
 			</div>
@@ -63,14 +36,6 @@
 		<div class="row-fluid">
 			<div class="span12">
 			<h1>CRM</h1>
-			<?php $messenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger'); ?>
-			<?php if ($messenger->hasMessages()): ?>
-				<ul>
-				<?php foreach ($messenger->getMessages() as $message): ?>
-				<li><?php echo $message ?></li>
-				<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
 			</div>
 		</div>
 		<?php echo $this->layout()->content ?>
