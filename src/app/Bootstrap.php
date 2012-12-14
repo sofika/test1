@@ -29,9 +29,22 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 	}
 	
 	/**
+	 * Initializes the rest
+	 *
+	public function _initRestRoute(){
+		Zend_Controller_Front::getInstance()
+			->getRouter()
+				->addRoute(
+					'default', 
+					new Zend_Rest_Route(Zend_Controller_Front::getInstance())
+				);
+	}
+	
+	/**
 	 * Inits the placeholders
 	 */
 	protected function _initPlaceholders() {
+		/*
 		$this->bootstrap('view');
 		$view = $this->getResource('view');
 		$view->doctype('HTML5');
@@ -40,5 +53,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 		$view->headLink()->prependStylesheet('/bootstrap/css/bootstrap.css');
 		$view->headScript()->appendFile('/bootstrap/js/bootstrap.js');
 		$view->headScript()->appendFile('/bootstrap/js/jquery.js');
+		*/
 	}
 }
