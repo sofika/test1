@@ -50,6 +50,7 @@ class UserControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
     public function testFailed(){
     	$this->assertTrue(false);
     }
+
      */
 }
 
