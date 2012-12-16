@@ -1,0 +1,44 @@
+<?php echo $this->doctype() ?>
+<html>
+<head>
+	<meta charset="utf-8">
+	<?php echo $this->headTitle() ?>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<?php echo $this->headLink() ?>
+	<?php echo $this->headScript() ?>
+	<style type="text/css">
+	<!--
+	body {padding-top: 50px}
+	-->
+	</style>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a href="<?php echo $this->url(array(), null, true) ?>" class="brand"><font color="green">REEF</font></a>
+				<div class="nav-collapse collapse">
+					<ul class="nav pull-right">
+						<li class="active">
+							<a href="#">Navbutton</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+			<h1>CRM</h1>
+			</div>
+		</div>
+		<?php echo $this->layout()->content ?>
+	</div>
+</body>
+</html>
