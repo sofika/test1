@@ -25,10 +25,9 @@ class UserControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 	 * @see Zend_Test_PHPUnit_ControllerTestCase::setUp()
 	 */
     public function setUp(){
-        $this->bootstrap = new Zend_Application(APPLICATION_ENV, APPLICATION_PATH . '/configs/application.ini');
+        $this->bootstrap = new Zend_Application(APPLICATION_ENV, APPLICATION_PATH . '/etc/application.ini');
         $this->bootstrap->bootstrap();
         parent::setUp();
-        $this->_setUpControllerMock();
         
     }
     
@@ -36,104 +35,22 @@ class UserControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
      * Tears down 
      */
     public function tearDown() {
-    	$this->resetRequest();
-    	$this->resetResponse();
     	parent::tearDown();
     }
     
     /**
-     * Sets up the controller mock
+     * A test which shows a successful result
      */
-    protected function _setUpControllerMock(){
-    	$request = $this->getRequest()
-    		->setRequestUri('/user/register')
-    		->setPathInfo(null);
-    	$response = $this->getResponse();
-    	$this->getFrontController()
-    		->setRequest($request)
-    		->setResponse($response)
-    		->throwExceptions(true)
-    		->returnResponse(false);
-    	
-    	$controller  = 'UserController';
-    	$methods = array('registerAction', 'loginAction', 'newsletterAction', 'profileAction', 'logoutAction');
-    	$arguments = array($request, $response, $request->getParams());
-    	$this->_controllerMock = $this->getMock(
-    			$controller,
-    			$methods
-    	);
-    }
-
-    /**
-     * Tests the register action
-     * 
-     * @test
-     */
-    public function testRegisterAction(){
-    	$this->_controllerMock
-    		 ->expects($this->once())
-    		 ->method('registerAction');
-    	
-    	// Execute controller
-    	$this->_controllerMock->registerAction();
-    }
-
-    /**
-     * Tests the login action
-     * 
-     * @test
-     */
-    public function testLoginAction(){
-    	$this->_controllerMock
-    	->expects($this->once())
-    	->method('loginAction');
-    	 
-    	// Execute model
-    	$this->_controllerMock->loginAction();
+    public function testSuccessful(){
+    	$this->assertTrue(true);
     }
     
     /**
-     * Tests the newsletter action
-     *
-     * @test
+     * A test which shows a fail result
      */
-    public function testNewsletterAction(){
-    	$this->_controllerMock
-    	->expects($this->once())
-    	->method('newsletterAction');
-    
-    	// Execute model
-    	$this->_controllerMock->newsletterAction();
+    public function testFailed(){
+    	$this->assertTrue(false);
     }
-    
-    /**
-     * Tests the profile action
-     *
-     * @test
-     */
-    public function testProfileAction(){
-    	$this->_controllerMock
-    	->expects($this->once())
-    	->method('profileAction');
-    
-    	// Execute model
-    	$this->_controllerMock->profileAction();
-    }
-    
-    /**
-     * Tests the logout action
-     *
-     * @test
-     */
-    public function testLogoutAction(){
-    	$this->_controllerMock
-    	->expects($this->once())
-    	->method('logoutAction');
-    
-    	// Execute model
-    	$this->_controllerMock->logoutAction();
-    }
-
 }
 
 
