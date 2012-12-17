@@ -1,0 +1,6 @@
+# -*- coding: robot -*-
+
+| *Variable* |     *Value*     |
+| ${STADT}  | Hamburg  |
+| ${HOST}  | fermacx  |
+
