@@ -1,9 +1,9 @@
 #!/bin/bash
 #---------------------------------------------------------------------------------------
-# Deploy in tetsing-environment
+# Deploy in staging-environment
 #---------------------------------------------------------------------------------------
 set -xv
-DIR=/var/www/testing.reef.7p-group.local/htdocs/reef
+DIR=/var/www/staging.reef.7p-group.local/htdocs/reef
 rm -rf $DIR
 mkdir $DIR
 if test $? -ne  0
