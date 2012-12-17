@@ -3,7 +3,7 @@
 # Deploy in Test-Umgebung
 #---------------------------------------------------------------------------------------
 set -xv
-DIR=/tmp/test1
+DIR=/var/www/testing.reef.7p-group.local/htdocs/reef
 rm -rf $DIR
 mkdir $DIR
 if test $? -ne  0
@@ -18,4 +18,4 @@ then
 	exit 1
 fi
 
-echo "Successfully deployed"
+echo "Successfully deployed to $DIR"
