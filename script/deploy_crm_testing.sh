@@ -2,16 +2,17 @@
 #---------------------------------------------------------------------------------------
 # Deploy in Test-Umgebung
 #---------------------------------------------------------------------------------------
+set -xv
 DIR=/tmp/test1
 rm -rf $DIR
 mkdir $DIR
-if test $? -eq  0
+if test $? -ne  0
 then
 	echo "error: cannto create directory $DIR" >&2
 	exit 1
 fi
-cp -qr . $DIR
-if test $? -eq  0
+cp -r . $DIR
+if test $? -ne  0
 then
 	echo "error: cannot copy current directory to $DIR" >&2
 	exit 1
