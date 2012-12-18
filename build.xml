@@ -25,6 +25,7 @@
  </target>
 
 
+
  <target name="parallelTasks" description="Run the pdepend, phpcpd, phpcs, phpdoc and phploc tasks in parallel using a maximum of 2 threads.">
   <parallel threadCount="2">
    <sequential>
