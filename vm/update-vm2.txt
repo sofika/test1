@@ -1,0 +1,18 @@
+
+Manual configuration of jenkins
+
+- enter in browser: http://...:8080
+- enter menu "Configure-Global-Security"
+  -- Security-Realm -> jenkins eigebautes Benutzerverzeichnis anhakeln
+                    -> Benutzer duerfen sich selbst registrieren
+  -- Projektbasierte Matrix-Zugriffsteuerung
+     -- alles anhakeln bei "Anonym"
+     -- add user "jenkins"  (alles anhakeln)
+
+- enter menu "System configuration"
+  -- fill out "Email-benachrichtigung"
+
+
+##############################################################################
+After manual registration execute  update-vm3.sh
+

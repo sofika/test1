@@ -1,0 +1,6 @@
+
+To update the vm execute as root in the following sequence:
+- update-vm1.sh
+- Manual configuration as described in update-vm2.txt
+- update-vm3.sh
+- update-vm4.sh
