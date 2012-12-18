@@ -16,11 +16,18 @@
  * @copyright  Copyright (c) 2012 REEF Project (gigaset.de)
  * @author	   Andrej Filipenko <af@meets-ecommerce.de>
  */
-class Newsletter_ConfirmController extends Reef_Rest_Controller_Abstract{
+class Newsletter_Confirm_SubscriptionController extends Reef_Rest_Controller_Abstract{
 	
 	/**
 	 * (non-PHPdoc)
 	 * @see Reef_Rest_Controller_Abstract::getAction()
 	 */
-	public function getAction() {}
+	public function getAction() {
+		$this->getResponse()->setHttpResponseCode(200);
+		$this->_getView()->assign(array(
+			"status"	=> "ok",
+			"message"	=> "Thank you!"
+		));
+		
+	}
 }
