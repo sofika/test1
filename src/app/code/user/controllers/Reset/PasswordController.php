@@ -16,7 +16,7 @@
  * @copyright  Copyright (c) 2012 REEF Project (gigaset.de)
  * @author	   Andrej Filipenko <af@meets-ecommerce.de>
  */
-class User_ResetpasswordController extends Reef_Rest_Controller_Abstract {
+class User_Reset_PasswordController extends Reef_Rest_Controller_Abstract {
 	
 	/**
 	 * (non-PHPdoc)
