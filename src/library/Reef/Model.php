@@ -17,6 +17,8 @@
  */
 abstract class Reef_Model extends Zend_Db_Table_Abstract {
 	
+	private $_validationMessage;
+	
 	/**
 	 * (non-PHPdoc)
 	 * @see Zend_Db_Table_Abstract::_setupTableName()
@@ -25,5 +27,14 @@ abstract class Reef_Model extends Zend_Db_Table_Abstract {
 		if (! $this->_name) {
 			$this->_name = strtolower(end(explode('_', get_class($this))));
 		}
+	}
+	
+	protected function setValidationMessage($msg) {
+		$this->_validationMessage = $msg;
+		return $this;
+	}
+	
+	public function getValidationMessage() {
+		return $this->_validationMessage;
 	}
 }
