@@ -14,7 +14,7 @@
  * @category   User
  * @package    Login_Controller
  * @copyright  Copyright (c) 2012 REEF Project (gigaset.de)
- * @author	   Andrej Filipenko <af@meets-ecommerce.de>
+ * @author	   Daniel Matuschewsky <dm@meets-ecommerce.de>
  */
 class User_LoginController extends Reef_Rest_Controller_Abstract{
 	
