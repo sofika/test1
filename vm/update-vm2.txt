@@ -12,6 +12,13 @@ Manual configuration of jenkins
 - enter menu "System configuration"
   -- fill out "Email-benachrichtigung"
 
+- create file: -rw-------. 1 jenkins jenkins 52 19. Dez 19:03 /var/lib/jenkins/.netrc
+  content example:
+
+  machine github.com
+        login xxxxxx
+        password yyyyyyyy
+
 
 ##############################################################################
 After manual registration execute  update-vm3.sh
