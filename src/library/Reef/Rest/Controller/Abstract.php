@@ -33,6 +33,9 @@ class Reef_Rest_Controller_Abstract extends Zend_Rest_Controller{
 			->addActionContext('get', array('json'))
 			->initContext();
 		$this->_getHelper()->viewRenderer->setNoRender(true);
+		// @todo: bring it to correct form
+		$auth = Zend_Auth::getInstance();
+		$auth->setStorage(new Zend_Auth_Storage_Session('reef/user'));
 	}
 	
 	/**
@@ -47,6 +50,36 @@ class Reef_Rest_Controller_Abstract extends Zend_Rest_Controller{
 	 */
 	protected function _initFormat(){
 		$this->getRequest()->setParam('format', 'json');
+	}
+	
+	/**
+	 * Returns the auth adapter
+	 * 
+	 * @return Zend_Auth
+	 */
+	protected function _getAuth(){
+		return Zend_Auth::getInstance();
+	}
+	
+	/**
+	 * Returns the cache factory
+	 * 
+	 * @return Zend_Cache
+	 */
+	protected function _getCache(){
+		return Reef_Cache::getMemcache();
+	}
+	
+	/**
+	 * Returns the sent auth token
+	 * 
+	 * @return string|boolean
+	 */
+	protected function _getAuthToken(){
+		if(strlen($this->getRequest()->getHeader('auth-token'))){
+			return $this->getRequest()->getHeader('auth-token');
+		}
+		return false;
 	}
 	
 	/**

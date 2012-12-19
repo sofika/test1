@@ -3,7 +3,7 @@
  * 
  * REEF CRM
  *
- * This is rest resource handling the user login
+ * This is the user model
  *
  * LICENSE
  *
@@ -12,15 +12,11 @@
  * except for the project REEF.
  *
  * @category   User
- * @package    Login_Controller
+ * @package    Logout_Controller
  * @copyright  Copyright (c) 2012 REEF Project (gigaset.de)
  * @author	   Daniel Matuschewsky <dm@meets-ecommerce.de>
  */
-class User_LoginController extends Reef_Rest_Controller_Abstract{
+class User_Model_User{
 	
-	/**
-	 * (non-PHPdoc)
-	 * @see Reef_Rest_Controller_Abstract::postAction()
-	 */
-	public function postAction() {}
+
 }
