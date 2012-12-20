@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>- pulls master-branch of https://github.com/gigaset/crm.git&#xd;
+- deploys application to /var/www/staging.reef.7p-group.local/htdocs/reef</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.nirima.AdaptivePluginProperty plugin="AdaptivePlugin@0.1">
@@ -14,7 +15,7 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>https://github.com/sofika/test1.git/</url>
+        <url>https://github.com/gigaset/crm.git/</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -56,12 +57,6 @@
       <command>./script/deploy_crm_staging.sh</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.Mailer>
-      <recipients>kfischer.swsgmbh@t-online.de</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>

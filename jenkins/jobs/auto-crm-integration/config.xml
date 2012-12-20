@@ -1,10 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;!--&#xd;
-&lt;img type=&quot;image/svg+xml&quot; height=&quot;300&quot; src=&quot;ws/build/pdepend/overview-pyramid.svg&quot; width=&quot;500&quot;&gt;&lt;/img&gt;&#xd;
-&lt;img type=&quot;image/svg+xml&quot; height=&quot;300&quot; src=&quot;ws/build/pdepend/dependencies.svg&quot; width=&quot;500&quot;&gt;&lt;/img&gt;&#xd;
---&gt;</description>
+  <description>- checks every 2 minutes branch developer https://github.com/gigaset/crm.git regarding changes&lt;br&gt;&#xd;
+- if changes detected execute job check-crm-developer&lt;br&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.nirima.AdaptivePluginProperty plugin="AdaptivePlugin@0.1">
@@ -17,7 +15,7 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>https://github.com/sofika/test1.git/</url>
+        <url>https://github.com/gigaset/crm.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -69,11 +67,6 @@
         <color>BLUE</color>
       </threshold>
     </hudson.tasks.BuildTrigger>
-    <hudson.tasks.Mailer>
-      <recipients>kfischer.swsgmbh@t-online.de</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers/>
 </project>

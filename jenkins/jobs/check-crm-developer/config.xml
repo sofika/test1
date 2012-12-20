@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>- pull developer-branch&lt;br&gt;&#xd;
+- execute phpunit-tests&lt;br&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.nirima.AdaptivePluginProperty plugin="AdaptivePlugin@0.1">
@@ -14,7 +15,7 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>https://github.com/sofika/test1.git/</url>
+        <url>https://github.com/gigaset/crm.git/</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -62,11 +63,6 @@
       <keepLongStdio>false</keepLongStdio>
       <testDataPublishers/>
     </hudson.tasks.junit.JUnitResultArchiver>
-    <hudson.tasks.Mailer>
-      <recipients>fischer@sofika.de</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers/>
 </project>

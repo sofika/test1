@@ -1,8 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;img type=&quot;image/svg+xml&quot; height=&quot;300&quot; src=&quot;ws/build/pdepend/overview-pyramid.svg&quot; width=&quot;500&quot;&gt;&lt;/img&gt;&#xd;
-&lt;img type=&quot;image/svg+xml&quot; height=&quot;300&quot; src=&quot;ws/build/pdepend/dependencies.svg&quot; width=&quot;500&quot;&gt;&lt;/img&gt;</description>
+  <description>- execute every night at 23:00 job check-crm-developer</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.nirima.AdaptivePluginProperty plugin="AdaptivePlugin@0.1">
@@ -16,7 +15,7 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers class="vector">
     <hudson.triggers.TimerTrigger>
-      <spec>00 11 * * *</spec>
+      <spec>00 23 * * *</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
@@ -30,11 +29,6 @@
         <color>BLUE</color>
       </threshold>
     </hudson.tasks.BuildTrigger>
-    <hudson.tasks.Mailer>
-      <recipients>kfischer.swsgmbh@t-online.de</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers/>
 </project>

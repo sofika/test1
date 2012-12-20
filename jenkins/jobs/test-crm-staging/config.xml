@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>execute acceptance tests (robot framework) on staging-environment</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.nirima.AdaptivePluginProperty plugin="AdaptivePlugin@0.1">
@@ -14,12 +14,12 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>https://github.com/sofika/test-jenkins.git/</url>
+        <url>https://github.com/gigaset/crm.git/</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>developer</name>
+        <name>master</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <disableSubmodules>false</disableSubmodules>
@@ -56,12 +56,6 @@
       <command>./script/test_crm_staging.sh</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.Mailer>
-      <recipients>kfischer.swsgmbh@t-online.de</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>
